@@ -49,10 +49,10 @@
     <loc>https://shinysurveys.jdtrat.com/reference/getRequired_internal.html</loc>
   </url>
   <url>
-    <loc>https://shinysurveys.jdtrat.com/reference/get_questions.html</loc>
+    <loc>https://shinysurveys.jdtrat.com/reference/getSurveyData.html</loc>
   </url>
   <url>
-    <loc>https://shinysurveys.jdtrat.com/reference/get_survey_data.html</loc>
+    <loc>https://shinysurveys.jdtrat.com/reference/get_questions.html</loc>
   </url>
   <url>
     <loc>https://shinysurveys.jdtrat.com/reference/listInputExtensions.html</loc>

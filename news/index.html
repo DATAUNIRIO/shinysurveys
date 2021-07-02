@@ -127,13 +127,58 @@
       
     </div>
 
+    <div id="shinysurveys-020" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0">
+<a href="#shinysurveys-020" class="anchor"></a>shinysurveys 0.2.0<small> Unreleased </small>
+</h1>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>Deprecated all arguments to <code><a href="../reference/renderSurvey.html">renderSurvey()</a></code>. Both the <code>df</code> and <code>theme</code> arguments should <strong>only</strong> be passed to <code><a href="../reference/surveyOutput.html">surveyOutput()</a></code>. A warning message appears if either argument is passed to <code><a href="../reference/renderSurvey.html">renderSurvey()</a></code>, though the code still works. This will truly be a breaking change in the next release of shinysurveys.</li>
+</ul>
+</div>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<div id="input-types" class="section level3">
+<h3 class="hasAnchor">
+<a href="#input-types" class="anchor"></a>Input Types</h3>
+<ul>
+<li><p>Created <code>numerInput()</code>, which is identical to <code><a href="https://rdrr.io/pkg/shiny/man/numericInput.html">shiny::numericInput()</a></code> but is more flexible in the sense that it <strong>does not</strong> require an initial value and it allows placeholders. This is now the default for “numeric” input questions.</p></li>
+<li><p>Created a shiny input, <code><a href="../reference/radioMatrixInput.html">radioMatrixInput()</a></code>, for matrix questions. It will return <code>NULL</code> until all possible response items have been answered, at which time a data frame with the ‘question_id’, ‘question_type’, and ‘response’ will be returned.</p></li>
+<li><p>Added support for “matrix” input types using <code><a href="../reference/radioMatrixInput.html">radioMatrixInput()</a></code> for creating matrix blocks. <a href="https://shinysurveys.jdtrat.com/articles/surveying-shinysurveys.html#matrix-input">See the documentation for an example.</a></p></li>
+<li><p>Added support for “instructions” ‘input’ types for use within other question types or standalone blocks.</p></li>
+<li><p>Added support for user-defined, custom input types. These can be registered with <code><a href="../reference/extendInputType.html">extendInputType()</a></code>. For more details, see my <a href="https://www.jdtrat.com/blog/extending-shinysurveys/">blog post</a> or <a href="https://shinysurveys.jdtrat.com/articles/custom-input-extensions.html">vignette</a>.</p></li>
+</ul>
+</div>
+<div id="miscellaneous-but-exciting" class="section level3">
+<h3 class="hasAnchor">
+<a href="#miscellaneous-but-exciting" class="anchor"></a>Miscellaneous (but exciting!)</h3>
+<ul>
+<li><p>Added support for multiple page surveys by adding a ‘page’ column to the data frame of questions supplied to <code><a href="../reference/surveyOutput.html">surveyOutput()</a></code>. The column can either have numeric <code>(e.g. c(1, 1, 2, 3))</code> or character values (<code><a href="https://rdrr.io/r/base/c.html">c("intro", "intro", "middle", "final")</a></code>). For more information, see my <a href="https://www.jdtrat.com/blog/multi-paged-shinysurvey/">blog post on multipaged shinysurveys</a>.</p></li>
+<li><p>Added support for aggregating response data with <code><a href="../reference/getSurveyData.html">getSurveyData()</a></code>. This feature allows you to automatically save responses for each individual. That is, this function accounts for dependencies; it will only aggregate data from questions a participant saw. It returns a data frame with a participant’s ID, question (input) ID, the question type (e.g. numeric, text, etc.) and response. For more details, see <a href="https://shinysurveys.jdtrat.com/articles/get-survey-data.html">“Aggregate Responses with getSurveyData()”</a>.</p></li>
+</ul>
+</div>
+</div>
+<div id="minor-improvements-and-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
+<ul>
+<li><p>Fixed bug where required dependency questions prevented people from submitting the survey (since they could not “answer” hidden questions the submit button would not be enabled).</p></li>
+<li><p>Added error messages to help with identifying common errors with creating surveys, specifically unrecognized input types.</p></li>
+<li><p>Removed “grid” CSS container surrounding the survey div.</p></li>
+<li><p>Changed how SASS rendered the CSS internally to improve performance. CSS rules are placed within style tags in the DOM.</p></li>
+</ul>
+</div>
+</div>
     <div id="shinysurveys-012" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.2">
 <a href="#shinysurveys-012" class="anchor"></a>shinysurveys 0.1.2<small> 2021-02-19 </small>
 </h1>
-<div id="breaking-changes" class="section level2">
+<div id="breaking-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes" class="anchor"></a>Breaking Changes</h2>
+<a href="#breaking-changes-1" class="anchor"></a>Breaking Changes</h2>
 <ul>
 <li>The <code><a href="../reference/renderSurvey.html">renderSurvey()</a></code> function no longer takes shiny <code>input</code>, <code>output</code>, and <code>session</code>. Rather, it accesses them internally with the function <code><a href="https://rdrr.io/pkg/shiny/man/domains.html">shiny::getDefaultReactiveDomain()</a></code>. Thanks to Dean Attali for the suggestion!</li>
 </ul>
@@ -165,9 +210,9 @@
 <h1 class="page-header" data-toc-text="0.1.0">
 <a href="#shinysurveys-010" class="anchor"></a>shinysurveys 0.1.0<small> Unreleased </small>
 </h1>
-<div id="new-features" class="section level2">
+<div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>New Features</h2>
+<a href="#new-features-1" class="anchor"></a>New Features</h2>
 <ul>
 <li>Addition of survey titles and description as arguments for <code><a href="../reference/surveyOutput.html">surveyOutput()</a></code>.</li>
 <li>Theme parameter in <code><a href="../reference/renderSurvey.html">renderSurvey()</a></code>

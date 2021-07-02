@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • shinysurveys</title>
+<title>Get survey data — getSurveyData • shinysurveys</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Get survey data — getSurveyData" />
+<meta property="og:description" content="Get a participant's responses." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -121,147 +122,57 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Get survey data</h1>
+    
+    <div class="hidden name"><code>getSurveyData.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Get a participant's responses.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>getSurveyData</span><span class='op'>(</span>custom_id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-creating-a-basic-shiny-survey" class="hasAnchor"><a href="#section-creating-a-basic-shiny-survey" class="anchor"></a>Creating a Basic Shiny Survey</h2>
-          <p class="section-desc"><p>Functions for creating a typical survey in Shiny.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="surveyOutput.html">surveyOutput()</a></code> </p>
-        </td>
-        <td><p>Generate the UI Code for demographic questions</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="renderSurvey.html">renderSurvey()</a></code> </p>
-        </td>
-        <td><p>Server code for adding survey questions</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-creating-an-advanced-shiny-survey" class="hasAnchor"><a href="#section-creating-an-advanced-shiny-survey" class="anchor"></a>Creating an Advanced Shiny Survey</h2>
-          <p class="section-desc"><p>Functions for stepping up your shiny survey game.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="getSurveyData.html">getSurveyData()</a></code> </p>
-        </td>
-        <td><p>Get survey data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="extendInputType.html">extendInputType()</a></code> </p>
-        </td>
-        <td><p>Add Custom Input Types for a Survey</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="surveyID.html">surveyID()</a></code> </p>
-        </td>
-        <td><p>Add correct ID for custom input types</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="surveyLabel.html">surveyLabel()</a></code> </p>
-        </td>
-        <td><p>Add correct label for custom input types</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="surveyOptions.html">surveyOptions()</a></code> </p>
-        </td>
-        <td><p>Add options for custom input types</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="listInputExtensions.html">listInputExtensions()</a></code> </p>
-        </td>
-        <td><p>List all registered survey extensions</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-shinysurvey-inputs" class="hasAnchor"><a href="#section-shinysurvey-inputs" class="anchor"></a>Shinysurvey Inputs</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="radioMatrixInput.html">radioMatrixInput()</a></code> </p>
-        </td>
-        <td><p>Create a matrix of radio buttons.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="numberInput.html">numberInput()</a></code> </p>
-        </td>
-        <td><p>Create a numeric input</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-demo-tools" class="hasAnchor"><a href="#section-demo-tools" class="anchor"></a>Demo tools</h2>
-          <p class="section-desc"><p>Functions and data to help you get started with {shinysurveys}.</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="demo_survey.html">demo_survey()</a></code> </p>
-        </td>
-        <td><p>Demo Survey over multiple pages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="teaching_r_questions.html">teaching_r_questions</a></code> </p>
-        </td>
-        <td><p>A sample CSV file for demographic questions</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>custom_id</th>
+      <td><p>A unique identifier for the survey's respondents. NULL by
+default, and the built-in shinysurveys userID will be used.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A participant's responses.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+
+ <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+
+ <span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span>
+   <span class='fu'><a href='surveyOutput.html'>surveyOutput</a></span><span class='op'>(</span><span class='va'>teaching_r_questions</span><span class='op'>)</span>
+ <span class='op'>)</span>
+
+ <span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
+   <span class='fu'><a href='renderSurvey.html'>renderSurvey</a></span><span class='op'>(</span><span class='op'>)</span>
+   <span class='co'># Upon submission, print a data frame with participant responses</span>
+   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>submit</span>, <span class='op'>{</span>
+     <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'>getSurveyData</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+   <span class='op'>}</span><span class='op'>)</span>
+ <span class='op'>}</span>
+
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span>
+
+ <span class='op'>}</span>
+
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
