@@ -133,7 +133,11 @@
     <p>Get a participant's responses.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>getSurveyData</span><span class='op'>(</span>custom_id <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>getSurveyData</span><span class='op'>(</span>
+  custom_id <span class='op'>=</span> <span class='cn'>NULL</span>,
+  include_dependencies <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  dependency_string <span class='op'>=</span> <span class='st'>"HIDDEN-QUESTION"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,11 +147,35 @@
       <td><p>A unique identifier for the survey's respondents. NULL by
 default, and the built-in shinysurveys userID will be used.</p></td>
     </tr>
+    <tr>
+      <th>include_dependencies</th>
+      <td><p>LOGICAL: TRUE (default) and all dependency
+questions will be returned, regardless of if the individual respondent saw
+it. For respondents who did not see a specific question, the 'response'
+will take on the value from the <code>dependency_string</code> argument. If FALSE, the
+output will have variable rows depending on which questions a given
+participant answered.</p></td>
+    </tr>
+    <tr>
+      <th>dependency_string</th>
+      <td><p>A character string to be imputed for dependency
+questions that a respondent did not see. Default is "HIDDEN-QUESTION".</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A participant's responses.</p>
+    <p>A data frame with four columns containing information about the
+participant's survey responses: The 'subject_id' column can be used for
+identifying respondents. By default, it utilizes shinysurveys URL-based
+user tracking feature. The 'question_id' and 'question_type' columns
+correspond to  'input_id' and 'input_type' from the original data frame of
+questions. The 'response' column is the participant's answer.</p>
+<p>The number of rows, corresponding to the questions an individual saw,
+depends on the <code>include_dependencies</code> argument. If TRUE, by default, then
+the resulting data frame will have one row per unique input ID. If FALSE,
+the data frame may have variable length depending on which questions a
+given individual answers.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
