@@ -76,22 +76,22 @@ button_placeholders <- function(page) {
   # If there's only one page, just display submit button
   if (page == "1" && length(unique(survey_env$question_df$page)) == 1) {
     shiny::div(class = "survey-buttons",
-               shiny::actionButton("submit", "Submit")
+               shiny::actionButton("submit", "Enviar")
     )
 
   } else if (page == "1" && length(unique(survey_env$question_df$page)) != 1) {
     shiny::div(class = "survey-buttons",
-               shiny::actionButton(paste0("next-", page), "Next", `page-action` = "next")
+               shiny::actionButton(paste0("next-", page), "Seguinte", `page-action` = "next")
     )
   } else if (page != "1" && page != as.character(survey_env$num_pages)) {
     shiny::div(class = "survey-buttons",
-               shiny::actionButton(paste0("previous-", page), "Previous", `page-action` = "previous"),
-               shiny::actionButton(paste0("next-", page), "Next", `page-action` = "next")
+               shiny::actionButton(paste0("previous-", page), "Anterior", `page-action` = "previous"),
+               shiny::actionButton(paste0("next-", page), "Seguinte", `page-action` = "next")
     )
   } else if (page == as.character(survey_env$num_pages)) {
     shiny::div(class = "survey-buttons",
-               shiny::actionButton(paste0("previous-", page), "Previous", `page-action` = "previous"),
-               shiny::actionButton("submit", "Submit")
+               shiny::actionButton(paste0("previous-", page), "Anterior", `page-action` = "previous"),
+               shiny::actionButton("submit", "Enviar")
     )
   }
 }
