@@ -28,14 +28,12 @@
 
 ## Installation
 
-You can install {shinysurveys} via CRAN or GitHub and load it as follows:
+You can install {shinysurveys} via GitHub and load it as follows:
 
 ``` {.r}
-# Install released version from CRAN
-install.packages("shinysurveys")
 
-# Or, install the development version from GitHub
-remotes::install_github("jdtrat/shinysurveys")
+# install the development version from GitHub (em portugues - botão ENVIAR)
+remotes::install_github("DATAUNIRIO/shinysurveys")
 
 # Load package
 library(shinysurveys)
