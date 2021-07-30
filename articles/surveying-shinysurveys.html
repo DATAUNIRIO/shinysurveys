@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinysurveys</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -82,7 +82,14 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/jdtrat/shinysurveys/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -98,7 +105,7 @@
       <h1 data-toc-skip>A survey of shinysurveys</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/jdtrat/shinysurveys/blob/master/vignettes/surveying-shinysurveys.Rmd"><code>vignettes/surveying-shinysurveys.Rmd</code></a></small>
       <div class="hidden name"><code>surveying-shinysurveys.Rmd</code></div>
 
     </div>
@@ -106,13 +113,13 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">shinysurveys</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shinysurveys.jdtrat.com">shinysurveys</a></span><span class="op">)</span></code></pre></div>
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
 <p>The ability to easily collect and analyze survey data is incredibly important. Many platforms provide user-friendly methods to do this. <a href="https://www.google.com/forms/about/">Google Forms</a>, <a href="https://www.surveymonkey.com/">SurveyMonkey</a>, and <a href="https://www.qualtrics.com/core-xm/survey-software/">Qualtrics</a> are all popular options. However, these services don’t always integrate easily with existing data analysis and/or research pipelines. Because of R’s prevalence in academia and research, {shinysurveys} was developed to streamline the data collection and analysis process.</p>
 <p>In this vignette, I provide an overview of the main features of shinysurveys.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Aligned with the basic structure of {shiny} applications, consisting of the user-interface and server components, this package has a function for each: <code><a href="../reference/surveyOutput.html">surveyOutput()</a></code> and <code><a href="../reference/renderSurvey.html">renderSurvey()</a></code>, respectively. The former accepts a data frame of questions that follow a specific format. To illustrate this, I will show a questionnaire from a recent study conducted by the <a href="https://dmds.lucymcgowan.com/">D’Agostino McGowan Data Science Lab</a> that is built into the <code>shinysurveys</code> package.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> The first ten (of 54) rows of this data frame look like:</p>
-<pre><code>#&gt; # A tibble: 10 x 7
+<pre><code>#&gt; # A tibble: 10 × 7
 #&gt;    question    option   input_type input_id dependence dependence_value required
 #&gt;    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
 #&gt;  1 What's you… 25       numeric    age      &lt;NA&gt;       &lt;NA&gt;             TRUE    
@@ -164,10 +171,10 @@
 <h3 class="hasAnchor">
 <a href="#numeric-input" class="anchor"></a>Numeric Input</h3>
 <p>A good example of a numeric input is the first question: “What’s your age?”:</p>
-<pre><code>#&gt; # A tibble: 1 x 7
-#&gt;   question       option input_type input_id dependence dependence_value required
-#&gt;   &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
-#&gt; 1 What's your a… 25     numeric    age      &lt;NA&gt;       &lt;NA&gt;             TRUE</code></pre>
+<pre><code>#&gt; # A tibble: 1 × 7
+#&gt;   question         option input_type input_id dependence dependence_value required
+#&gt;   &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
+#&gt; 1 What's your age? 25     numeric    age      &lt;NA&gt;       &lt;NA&gt;             TRUE</code></pre>
 <p>As seen above, this row corresponds to the question “What’s your age?”. I know to expect a numeric response by looking at the <code>input_type</code> column, and the default value is equal to 25 according to the <code>option</code> column.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>I can also tell that there are no dependency questions. This means that no matter what value is entered, no follow-up question will appear. Lastly, I know it is a required question.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <p><img src="graphics/survey-of-shinysurveys/numeric_example.png" style="display: block; margin: 1em auto" width="300"></p>
@@ -176,7 +183,7 @@
 <h3 class="hasAnchor">
 <a href="#multiple_choice" class="anchor"></a>Multiple Choice (mc) Input</h3>
 <p>An example of this is the question “Which best describes your gender?”:</p>
-<pre><code>#&gt; # A tibble: 5 x 7
+<pre><code>#&gt; # A tibble: 5 × 7
 #&gt;   question    option   input_type input_id  dependence dependence_value required
 #&gt;   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
 #&gt; 1 Which best… Female   mc         gender    &lt;NA&gt;       &lt;NA&gt;             TRUE    
@@ -191,7 +198,7 @@
 <h3 class="hasAnchor">
 <a href="#text_input" class="anchor"></a>Text Input</h3>
 <p>Questions that need text-based input should specify “text” in the <code>input_type</code> column. As noted in the previous example, the following is a dependent of the question “Which best describes your gender?”:</p>
-<pre><code>#&gt; # A tibble: 1 x 7
+<pre><code>#&gt; # A tibble: 1 × 7
 #&gt;   question     option input_type input_id   dependence dependence_value required
 #&gt;   &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
 #&gt; 1 Which best … &lt;NA&gt;   text       self_desc… gender     Prefer to self … FALSE</code></pre>
@@ -203,7 +210,7 @@
 <h3 class="hasAnchor">
 <a href="#select-input" class="anchor"></a>Select Input</h3>
 <p>Select inputs are great when there are many potential, discretely defined, response choices.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> An example is the question “What was your first language?” which contains 15 options:</p>
-<pre><code>#&gt; # A tibble: 15 x 7
+<pre><code>#&gt; # A tibble: 15 × 7
 #&gt;    question    option  input_type input_id  dependence dependence_value required
 #&gt;    &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
 #&gt;  1 What was y… Arabic  select     first_la… &lt;NA&gt;       &lt;NA&gt;             FALSE   
@@ -227,7 +234,7 @@
 <h3 class="hasAnchor">
 <a href="#yes-or-no-yn-input" class="anchor"></a>Yes or No (y/n) Input</h3>
 <p>Yes or no questions are self-explanatory. An example is the question “Have you ever learned to program in R?”:</p>
-<pre><code>#&gt; # A tibble: 2 x 7
+<pre><code>#&gt; # A tibble: 2 × 7
 #&gt;   question       option input_type input_id dependence dependence_value required
 #&gt;   &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
 #&gt; 1 Have you ever… Yes    y/n        learned… &lt;NA&gt;       &lt;NA&gt;             TRUE    
@@ -277,7 +284,7 @@
 <a href="#basic-survey" class="anchor"></a>Basic Survey</h3>
 <p>A minimal example of a survey can be created with this template:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">shinysurveys</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shinysurveys.jdtrat.com">shinysurveys</a></span><span class="op">)</span>
 <span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span>
   <span class="fu">shinysurveys</span><span class="fu">::</span><span class="fu"><a href="../reference/surveyOutput.html">surveyOutput</a></span><span class="op">(</span>df <span class="op">=</span> <span class="fu">shinysurveys</span><span class="fu">::</span><span class="va"><a href="../reference/teaching_r_questions.html">teaching_r_questions</a></span>,
                              survey_title <span class="op">=</span> <span class="st">"A minimal title"</span>,
@@ -302,7 +309,7 @@
 <h3 class="hasAnchor">
 <a href="#dependency-questions" class="anchor"></a>Dependency Questions</h3>
 <p>I use the term question dependencies in reference to the situations where a question should only be shown (i.e. asked) if a specific response is given to a preceding question. The questions included with the {shinysurveys} package contain many dependencies. One example I I mentioned when discussing <a href="#multiple_choice">multiple choice</a> and <a href="#text_input">text-based</a> questions is the dependent for “Which best describes your gender?”</p>
-<pre><code>#&gt; # A tibble: 5 x 7
+<pre><code>#&gt; # A tibble: 5 × 7
 #&gt;   question    option   input_type input_id  dependence dependence_value required
 #&gt;   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;            &lt;lgl&gt;   
 #&gt; 1 Which best… Female   mc         gender    &lt;NA&gt;       &lt;NA&gt;             TRUE    

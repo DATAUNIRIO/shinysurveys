@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">shinysurveys</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -123,7 +123,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/jdtrat/shinysurveys/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -138,9 +143,21 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1 data-toc-skip>Changelog <small></small></h1>
-      
+      <small>Source: <a href='https://github.com/jdtrat/shinysurveys/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="shinysurveys-development-version" class="section level1">
+<h1 class="page-header" data-toc-text="development version">
+<a href="#shinysurveys-development-version" class="anchor"></a>shinysurveys (development version)<small> Unreleased </small>
+</h1>
+<div id="minor-improvements-and-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
+<ul>
+<li>Made input checks more robust for required questions – necessary for some custom input types (<a href='https://github.com/jdtrat/shinysurveys/issues/32'>#32</a>).</li>
+</ul>
+</div>
+</div>
     <div id="shinysurveys-020" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.0">
 <a href="#shinysurveys-020" class="anchor"></a>shinysurveys 0.2.0<small> 2021-07-11 </small>
@@ -175,9 +192,9 @@
 </ul>
 </div>
 </div>
-<div id="minor-improvements-and-fixes" class="section level2">
+<div id="minor-improvements-and-fixes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-1" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li><p>Fixed bug where required dependency questions prevented people from submitting the survey (since they could not “answer” hidden questions the submit button would not be enabled).</p></li>
 <li><p>Added error messages to help with identifying common errors with creating surveys, specifically unrecognized input types.</p></li>
